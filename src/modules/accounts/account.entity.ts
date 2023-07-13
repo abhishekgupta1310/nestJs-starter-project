@@ -3,6 +3,7 @@ import { Table, Column, Model, PrimaryKey, AutoIncrement, DeletedAt, UpdatedAt, 
 @Table
 export class Account extends Model<Account> {
     @PrimaryKey
+    @AutoIncrement
     @Column
     id: number;
 

@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { SettingsService } from './settings.service';
 import { Setting } from './setting.entity';
 import { CreateSettingDTO } from './dto/setting.dto';
+import { AuthGuard } from 'src/core/auth/auth.guard';
 
 @Controller('settings')
 export class SettingsController {
@@ -13,9 +14,9 @@ export class SettingsController {
   }
 
   @Post()
+  @UseGuards(AuthGuard)
   createPost(@Body() body: CreateSettingDTO) : Promise<Setting> {
     return this.settingsService.createSetting(body);
   }
-
   
 }

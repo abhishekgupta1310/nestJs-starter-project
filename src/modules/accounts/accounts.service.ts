@@ -15,6 +15,14 @@ export class AccountsService {
   }
 
   createAccount(payload: CreateAccountDTO): Promise<Account> {
-    return this.accountsRepository.create<Account>(payload)
+    var accountPromise:Promise<Account> = this.accountsRepository.findOne<Account>({where: { name: payload.name}})
+    const account = accountPromise.then((account) => {
+      if (account != null) {
+        return account
+      } else {
+        return this.accountsRepository.create<Account>(payload)
+      }
+    })
+    return account
   }
 }

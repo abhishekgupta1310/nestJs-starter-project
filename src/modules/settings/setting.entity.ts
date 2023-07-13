@@ -3,10 +3,10 @@ import { Account } from '../accounts/account.entity';
 
 @Table
 export class Setting extends Model<Setting> {
-    // @PrimaryKey
-    // @AutoIncrement
-    // @Column
-    // id: number;
+    @PrimaryKey
+    @AutoIncrement
+    @Column
+    id: number;
 
     @Column
     name: string;

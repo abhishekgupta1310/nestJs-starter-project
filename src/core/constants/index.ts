@@ -1,3 +1,10 @@
 export const SEQUELIZE = 'SEQUELIZE';
 export const ACCOUNTS_REPOSITORY = 'ACCOUNTS_REPOSITORY';
 export const SETTINGS_REPOSITORY = 'SETTINGS_REPOSITORY';
+export const DIALECT = 'postgres';
+export const DB_HOST = 'localhost';
+export const DB_PORT = 5432;
+export const DB_USERNAME = 'appuser';
+export const DB_PASSWORD = 'password';
+export const DB_NAME = 'accounts_db';
+export const AUTH_SECRET = {secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.'};
