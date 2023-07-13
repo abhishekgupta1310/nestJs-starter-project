@@ -15,6 +15,7 @@ export class SettingsService {
   }
 
   createSetting(payload: CreateSettingDTO): Promise<Setting> {
+    
     return this.settingsRepository.create<Setting>(payload);
   }
 }
