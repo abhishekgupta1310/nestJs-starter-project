@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { SettingsService } from './settings.service';
 import { Setting } from './setting.entity';
 import { CreateSettingDTO } from './dto/setting.dto';
-import { AuthGuard } from 'src/core/auth/auth.guard';
+import { AuthGuard } from 'src/core/guards/auth.guard';
 
 @Controller('settings')
 export class SettingsController {
