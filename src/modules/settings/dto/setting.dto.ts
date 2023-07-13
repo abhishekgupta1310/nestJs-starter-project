@@ -13,5 +13,5 @@ export class CreateSettingDTO {
   account_id: number;
 
   @IsNotEmpty()
-  value: string;
+  value;
 }
