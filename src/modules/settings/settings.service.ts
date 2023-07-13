@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import { Setting } from './setting.entity';
 import { CreateSettingDTO } from './dto/setting.dto';
 
@@ -15,7 +15,10 @@ export class SettingsService {
   }
 
   createSetting(payload: CreateSettingDTO): Promise<Setting> {
-    
+    if (typeof payload.value !== payload.data_type) {
+      throw new BadRequestException('Data type and value not matching')      
+    }
     return this.settingsRepository.create<Setting>(payload);
   }
+
 }
