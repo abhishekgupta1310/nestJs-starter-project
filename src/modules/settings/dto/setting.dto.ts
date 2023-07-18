@@ -1,7 +1,6 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsInt, IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 export class CreateSettingDTO {
-  _id?: number;
 
   @IsNotEmpty()
   name: string;
@@ -9,9 +8,10 @@ export class CreateSettingDTO {
   @IsNotEmpty()
   data_type: string;
 
-  @IsNotEmpty()
+  @IsNumber()
+  @Min(1)
   account_id: number;
 
   @IsNotEmpty()
-  value;
+  value: any;
 }

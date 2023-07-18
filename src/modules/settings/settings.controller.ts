@@ -9,13 +9,14 @@ export class SettingsController {
   constructor(private readonly settingsService: SettingsService) {}
 
   @Get()
-  getHello(): Promise<Setting[]> {
+  @UseGuards(AuthGuard)
+  getAll(): Promise<Setting[]> {
     return this.settingsService.getSettings();
   }
 
   @Post()
   @UseGuards(AuthGuard)
-  createPost(@Body() body: CreateSettingDTO) : Promise<Setting> {
+  createSetting(@Body() body: CreateSettingDTO) : Promise<Setting> {
     return this.settingsService.createSetting(body);
   }
   
